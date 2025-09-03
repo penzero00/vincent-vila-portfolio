@@ -146,12 +146,12 @@ const ThreeBackground: React.FC<ThreeBackgroundProps> = ({ className }) => {
   const networkContainerRef = useRef<ExtendedGroup>(new Group() as ExtendedGroup);
   const [navbarHeight, setNavbarHeight] = useState<number>(0);
 
-  // Colors for the hexagons - matching the portfolio theme
+  // Colors for the hexagons
   const colors: number[] = [
-    0x00E6E6, // Cyan (primary accent)
+    0x66B2FF, // Light Blue
     0x4DC4FF, // Sky Blue
     0x33CCFF, // Turquoise
-    0x66B2FF, // Light Blue
+    0x00E6E6, // Cyan
     0x00FFFF  // Bright Cyan
   ];
 
@@ -159,7 +159,7 @@ const ThreeBackground: React.FC<ThreeBackgroundProps> = ({ className }) => {
   const createGlowingDot = (posX: number, posY: number, posZ: number): ExtendedMesh => {
     const dotGeometry = new SphereGeometry(0.1, 6, 6);
     const dotMaterial = new MeshBasicMaterial({
-      color: 0x00E6E6, // Matching accent color
+      color: 0xffffff,
       transparent: true,
       opacity: 0.5 + Math.random() * 0.3
     });
@@ -182,7 +182,7 @@ const ThreeBackground: React.FC<ThreeBackgroundProps> = ({ className }) => {
     
     const lineGeometry = createBufferGeometry(Array.from(positions));
     const lineMaterial = new LineBasicMaterial({
-      color: 0x00E6E6, // Matching accent color
+      color: 0x5fd3d3,
       transparent: true,
       opacity: 0.3
     });
@@ -216,8 +216,8 @@ const ThreeBackground: React.FC<ThreeBackgroundProps> = ({ className }) => {
     if (!containerRef.current) return;
 
     // Get container dimensions
-    const width = containerRef.current.clientWidth || window.innerWidth;
-    const height = containerRef.current.clientHeight || window.innerHeight;
+    const width = containerRef.current.clientWidth;
+    const height = containerRef.current.clientHeight;
 
     // Setup camera
     cameraRef.current = new PerspectiveCamera(60, width / height, 0.1, 1000);
@@ -229,7 +229,6 @@ const ThreeBackground: React.FC<ThreeBackgroundProps> = ({ className }) => {
       alpha: true
     });
     rendererRef.current.setSize(width, height);
-    rendererRef.current.setClearColor(0x000000, 0); // Transparent background
 
     // Add renderer to container
     containerRef.current.appendChild(rendererRef.current.domElement);
@@ -238,7 +237,6 @@ const ThreeBackground: React.FC<ThreeBackgroundProps> = ({ className }) => {
     rendererRef.current.domElement.style.left = '0';
     rendererRef.current.domElement.style.width = '100%';
     rendererRef.current.domElement.style.height = '100%';
-    rendererRef.current.domElement.style.pointerEvents = 'none';
 
     // Add lights
     const ambientLight = new AmbientLight(0xffffff, 0.5);
@@ -277,16 +275,11 @@ const ThreeBackground: React.FC<ThreeBackgroundProps> = ({ className }) => {
 
     // Handle resize
     const handleResize = () => {
-      if (!cameraRef.current || !rendererRef.current || !containerRef.current) return;
-      
-      const newWidth = containerRef.current.clientWidth || window.innerWidth;
-      const newHeight = containerRef.current.clientHeight || window.innerHeight;
-      
-      cameraRef.current.aspect = newWidth / newHeight;
+      if (!cameraRef.current || !rendererRef.current) return;
+      cameraRef.current.aspect = window.innerWidth / window.innerHeight;
       cameraRef.current.updateProjectionMatrix();
-      rendererRef.current.setSize(newWidth, newHeight);
+      rendererRef.current.setSize(window.innerWidth, window.innerHeight);
     };
-    
     window.addEventListener('resize', handleResize);
 
     // Start animation
@@ -297,30 +290,14 @@ const ThreeBackground: React.FC<ThreeBackgroundProps> = ({ className }) => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
       }
-      if (rendererRef.current && containerRef.current && rendererRef.current.domElement.parentNode === containerRef.current) {
+      if (rendererRef.current && containerRef.current) {
         containerRef.current.removeChild(rendererRef.current.domElement);
-      }
-      // Clean up Three.js resources
-      if (rendererRef.current) {
-        rendererRef.current.dispose();
       }
     };
   }, [navbarHeight]);
 
   return (
-    <div 
-      ref={containerRef} 
-      className={className}
-      style={{ 
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        zIndex: -1,
-        pointerEvents: 'none'
-      }}
-    />
+    <div ref={containerRef} className={className} />
   );
 };
 
