@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(225, 40%, 8%);
+  --foreground: hsl(220, 15%, 90%);
+  --card: hsl(225, 35%, 12%);
+  --card-foreground: hsl(220, 15%, 90%);
+  --popover: hsl(225, 35%, 12%);
+  --popover-foreground: hsl(220, 15%, 90%);
+  --primary: hsl(180, 100%, 45%);
+  --primary-foreground: hsl(225, 40%, 8%);
+  --secondary: hsl(225, 30%, 18%);
+  --secondary-foreground: hsl(220, 15%, 90%);
+  --muted: hsl(225, 25%, 22%);
+  --muted-foreground: hsl(220, 10%, 65%);
+  --accent: hsl(180, 100%, 45%);
+  --accent-foreground: hsl(225, 40%, 8%);
+  --destructive: hsl(356, 91%, 54%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(225, 25%, 22%);
+  --input: hsl(225, 30%, 18%);
+  --ring: hsl(180, 100%, 45%);
+  --chart-1: hsl(180, 100%, 45%);
+  --chart-2: hsl(160, 100%, 36%);
+  --chart-3: hsl(42, 93%, 56%);
+  --chart-4: hsl(147, 78%, 42%);
+  --chart-5: hsl(341, 75%, 51%);
+  --sidebar: hsl(225, 35%, 12%);
+  --sidebar-foreground: hsl(220, 15%, 90%);
+  --sidebar-primary: hsl(180, 100%, 45%);
+  --sidebar-primary-foreground: hsl(225, 40%, 8%);
+  --sidebar-accent: hsl(225, 25%, 22%);
+  --sidebar-accent-foreground: hsl(180, 100%, 45%);
+  --sidebar-border: hsl(225, 25%, 22%);
+  --sidebar-ring: hsl(180, 100%, 45%);
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: 'Fira Code', monospace;
+  --radius: 0.75rem;
+  --shadow-2xs: 0px 2px 0px 0px hsl(180, 100%, 45%, 0.00);
+  --shadow-xs: 0px 2px 0px 0px hsl(180, 100%, 45%, 0.00);
+  --shadow-sm: 0px 2px 0px 0px hsl(180, 100%, 45%, 0.00), 0px 1px 2px -1px hsl(180, 100%, 45%, 0.00);
+  --shadow: 0px 2px 0px 0px hsl(180, 100%, 45%, 0.00), 0px 1px 2px -1px hsl(180, 100%, 45%, 0.00);
+  --shadow-md: 0px 2px 0px 0px hsl(180, 100%, 45%, 0.00), 0px 2px 4px -1px hsl(180, 100%, 45%, 0.00);
+  --shadow-lg: 0px 2px 0px 0px hsl(180, 100%, 45%, 0.00), 0px 4px 6px -1px hsl(180, 100%, 45%, 0.00);
+  --shadow-xl: 0px 2px 0px 0px hsl(180, 100%, 45%, 0.00), 0px 8px 10px -1px hsl(180, 100%, 45%, 0.00);
+  --shadow-2xl: 0px 2px 0px 0px hsl(180, 100%, 45%, 0.00);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+}
+
+.dark {
+  --background: hsl(225, 40%, 8%);
+  --foreground: hsl(220, 15%, 90%);
+  --card: hsl(225, 35%, 12%);
+  --card-foreground: hsl(220, 15%, 90%);
+  --popover: hsl(225, 35%, 12%);
+  --popover-foreground: hsl(220, 15%, 90%);
+  --primary: hsl(180, 100%, 45%);
+  --primary-foreground: hsl(225, 40%, 8%);
+  --secondary: hsl(225, 30%, 18%);
+  --secondary-foreground: hsl(220, 15%, 90%);
+  --muted: hsl(225, 25%, 22%);
+  --muted-foreground: hsl(220, 10%, 65%);
+  --accent: hsl(180, 100%, 45%);
+  --accent-foreground: hsl(225, 40%, 8%);
+  --destructive: hsl(356, 91%, 54%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(225, 25%, 22%);
+  --input: hsl(225, 30%, 18%);
+  --ring: hsl(180, 100%, 45%);
+  --chart-1: hsl(180, 100%, 45%);
+  --chart-2: hsl(160, 100%, 36%);
+  --chart-3: hsl(42, 93%, 56%);
+  --chart-4: hsl(147, 78%, 42%);
+  --chart-5: hsl(341, 75%, 51%);
+  --sidebar: hsl(225, 35%, 12%);
+  --sidebar-foreground: hsl(220, 15%, 90%);
+  --sidebar-primary: hsl(180, 100%, 45%);
+  --sidebar-primary-foreground: hsl(225, 40%, 8%);
+  --sidebar-accent: hsl(225, 25%, 22%);
+  --sidebar-accent-foreground: hsl(180, 100%, 45%);
+  --sidebar-border: hsl(225, 25%, 22%);
+  --sidebar-ring: hsl(180, 100%, 45%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    background: rgba(26, 35, 50, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .section-padding {
+    padding: 100px 0;
+  }
+
+  .skill-bar {
+    background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+    height: 8px;
+    border-radius: 4px;
+    transform-origin: left;
+    animation: skill-fill 2s ease-out forwards;
+  }
+
+  .project-card {
+    transition: all 0.3s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 230, 230, 0.2);
+  }
+
+  .social-icon {
+    transition: all 0.3s ease;
+  }
+
+  .social-icon:hover {
+    transform: scale(1.2);
+    color: var(--accent);
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 20px var(--accent);
+  }
+}
+
+@layer utilities {
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes glow {
+    0% { box-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent), 0 0 15px var(--accent); }
+    100% { box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent), 0 0 30px var(--accent); }
+  }
+
+  @keyframes slideUp {
+    0% { transform: translateY(50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @keyframes skill-fill {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out;
+  }
+
+  @media (max-width: 768px) {
+    .section-padding {
+      padding: 60px 0;
+    }
+  }
+}
