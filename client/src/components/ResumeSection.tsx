@@ -1,6 +1,9 @@
+import { useState } from 'react';
 import { Download } from 'lucide-react';
+import ResumeModal from './ResumeModal';
 
 export default function ResumeSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <section id="resume" className="section-padding bg-secondary/20">
       <div className="container mx-auto px-6">
@@ -52,6 +55,7 @@ export default function ResumeSection() {
           
           <div className="text-center">
             <button 
+              onClick={() => setIsModalOpen(true)}
               className="bg-gradient-to-r from-primary to-accent text-primary-foreground px-8 py-4 rounded-full font-semibold text-lg hover:shadow-lg hover:shadow-accent/25 transition-all duration-300 transform hover:scale-105"
               data-testid="button-download-resume"
             >
@@ -59,6 +63,11 @@ export default function ResumeSection() {
               Download Full Resume
             </button>
           </div>
+          
+          <ResumeModal 
+            isOpen={isModalOpen} 
+            onClose={() => setIsModalOpen(false)} 
+          />
         </div>
       </div>
     </section>
