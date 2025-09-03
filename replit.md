@@ -29,7 +29,7 @@ Preferred communication style: Simple, everyday language.
 ### Data Management
 - **Database**: Drizzle ORM configured for PostgreSQL with Neon Database serverless connection
 - **Schema Validation**: Zod for runtime type checking and data validation
-- **File Organization**: Asset files organized by category (web-applications, digital-designs, portraits, murals, 3d-models)
+- **File Organization**: Asset files organized by category (web-applications, digital-designs, digital-art, portraits, murals, 3d-models)
 - **API Response Format**: JSON with structured project data including file metadata
 
 ### UI/UX Design Patterns

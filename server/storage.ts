@@ -13,6 +13,7 @@ export class FileSystemStorage implements IStorage {
   private categories = [
     "web-applications",
     "digital-designs", 
+    "digital-art",
     "portraits",
     "murals",
     "3d-models"

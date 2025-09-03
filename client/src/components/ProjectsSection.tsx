@@ -1,12 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { Code, Palette, PaintBucket, Image, Box, X } from 'lucide-react';
-
-interface ProjectFile {
-  name: string;
-  path: string;
-  type: string;
-}
+import { Code, Palette, PaintBucket, Image, Box, Brush, X } from 'lucide-react';
+import { type ProjectFile, type ProjectData } from '@shared/schema';
 
 interface ProjectCategory {
   id: string;
@@ -19,7 +14,7 @@ interface ProjectCategory {
 export default function ProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 
-  const { data: projectData, isLoading } = useQuery({
+  const { data: projectData, isLoading } = useQuery<ProjectData>({
     queryKey: ['/api/projects'],
     enabled: true,
   });
@@ -33,9 +28,15 @@ export default function ProjectsSection() {
     },
     {
       id: 'digital-designs',
-      name: 'Digital & Graphic Designs',
-      description: 'Creative digital artwork, logos, and graphic design projects.',
+      name: 'Graphic Designs',
+      description: 'Logos, branding, and traditional graphic design projects.',
       icon: Palette,
+    },
+    {
+      id: 'digital-art',
+      name: 'Digital Art',
+      description: 'Creative digital artwork and illustrations created using digital tools.',
+      icon: Brush,
     },
     {
       id: 'portraits',
