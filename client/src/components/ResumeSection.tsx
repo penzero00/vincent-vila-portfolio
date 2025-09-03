@@ -25,7 +25,7 @@ export default function ResumeSection() {
                       Major in Animation and Motion Graphics
                     </p>
                     <p className="text-muted-foreground text-sm" data-testid="text-education-period">
-                      2019 - 2023
+                      2022 - Present
                     </p>
                   </div>
                 </div>
@@ -35,17 +35,47 @@ export default function ResumeSection() {
                 <h3 className="text-2xl font-semibold mb-6 text-accent">Experience</h3>
                 <div className="space-y-4">
                   <div className="border-l-4 border-accent pl-6">
-                    <h4 className="font-semibold" data-testid="text-job-title">
-                      Freelance Software Developer & Artist
+                    <h4 className="font-semibold" data-testid="text-job-title-1">
+                      Freelance Traditional Artist
                     </h4>
-                    <p className="text-accent" data-testid="text-company">
+                    <p className="text-accent" data-testid="text-company-1">
                       Self-Employed
                     </p>
-                    <p className="text-muted-foreground text-sm" data-testid="text-job-period">
-                      2021 - Present
+                    <p className="text-muted-foreground text-sm" data-testid="text-job-period-1">
+                      2016 - Present
                     </p>
-                    <p className="text-sm mt-2" data-testid="text-job-description">
-                      Creating interactive web applications and traditional artwork for commissioned projects.
+                    <p className="text-sm mt-2" data-testid="text-job-description-1">
+                      Creating realistic acrylic and charcoal portraits, canvas paintings, and custom mural works for commissioned projects.
+                    </p>
+                  </div>
+                  
+                  <div className="border-l-4 border-accent pl-6">
+                    <h4 className="font-semibold" data-testid="text-job-title-2">
+                      Freelance Graphic Designer and Digital Artist
+                    </h4>
+                    <p className="text-accent" data-testid="text-company-2">
+                      Self-Employed
+                    </p>
+                    <p className="text-muted-foreground text-sm" data-testid="text-job-period-2">
+                      2024 - Present
+                    </p>
+                    <p className="text-sm mt-2" data-testid="text-job-description-2">
+                      Designing logos, branding materials, digital artwork, and creative graphics for various clients and projects.
+                    </p>
+                  </div>
+                  
+                  <div className="border-l-4 border-accent pl-6">
+                    <h4 className="font-semibold" data-testid="text-job-title-3">
+                      Freelance Software Developer
+                    </h4>
+                    <p className="text-accent" data-testid="text-company-3">
+                      Self-Employed
+                    </p>
+                    <p className="text-muted-foreground text-sm" data-testid="text-job-period-3">
+                      2022 - Present
+                    </p>
+                    <p className="text-sm mt-2" data-testid="text-job-description-3">
+                      Developing interactive web applications, desktop software, and user-friendly digital solutions using modern technologies.
                     </p>
                   </div>
                 </div>
