@@ -17,12 +17,15 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
     pageStyle: `
       @page {
         size: A4;
-        margin: 0.5in;
+        margin: 0.3in;
       }
       @media print {
         body {
           -webkit-print-color-adjust: exact;
           color-adjust: exact;
+        }
+        @page {
+          margin: 0;
         }
       }
     `,

@@ -44,9 +44,6 @@ export default function ResumeSection() {
                     <p className="text-muted-foreground text-sm" data-testid="text-job-period-1">
                       2016 - Present
                     </p>
-                    <p className="text-sm mt-2" data-testid="text-job-description-1">
-                      Creating realistic acrylic and charcoal portraits, canvas paintings, and custom mural works for commissioned projects.
-                    </p>
                   </div>
                   
                   <div className="border-l-4 border-accent pl-6">
@@ -58,9 +55,6 @@ export default function ResumeSection() {
                     </p>
                     <p className="text-muted-foreground text-sm" data-testid="text-job-period-2">
                       2024 - Present
-                    </p>
-                    <p className="text-sm mt-2" data-testid="text-job-description-2">
-                      Designing logos, branding materials, digital artwork, and creative graphics for various clients and projects.
                     </p>
                   </div>
                   

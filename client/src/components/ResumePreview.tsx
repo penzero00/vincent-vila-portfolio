@@ -63,25 +63,25 @@ const ResumePreview = forwardRef<HTMLDivElement>((props, ref) => {
   ];
 
   return (
-    <div ref={ref} className="bg-white text-gray-900 p-8 max-w-4xl mx-auto min-h-screen">
+    <div ref={ref} className="bg-white text-gray-900 p-6 max-w-4xl mx-auto">
       {/* Header Section with Profile */}
-      <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-8 pb-6 border-b-2 border-gray-900">
+      <div className="flex flex-col md:flex-row items-center md:items-start gap-4 mb-6 pb-4 border-b-2 border-gray-900">
         <img
           src={formalImage}
           alt="Vincent V. Vila"
-          className="w-32 h-32 rounded-full object-cover border-4 border-gray-900"
+          className="w-24 h-24 rounded-full object-cover border-4 border-gray-900"
         />
         <div className="flex-1 text-center md:text-left">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">{personalInfo.name}</h1>
-          <p className="text-xl text-gray-700 mb-4">{personalInfo.title}</p>
-          <p className="text-sm text-gray-600 leading-relaxed">{personalInfo.bio}</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-1">{personalInfo.name}</h1>
+          <p className="text-lg text-gray-700 mb-2">{personalInfo.title}</p>
+          <p className="text-xs text-gray-600 leading-relaxed">{personalInfo.bio}</p>
         </div>
       </div>
 
       {/* Personal Information */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-900">Personal Information</h2>
-        <div className="grid md:grid-cols-2 gap-4 text-sm">
+      <div className="mb-5">
+        <h2 className="text-lg font-bold text-gray-900 mb-3 pb-1 border-b border-gray-900">Personal Information</h2>
+        <div className="grid md:grid-cols-2 gap-2 text-xs">
           <div><strong>Age:</strong> {personalInfo.age}</div>
           <div><strong>Birthday:</strong> {personalInfo.birthday}</div>
           <div><strong>Gender:</strong> {personalInfo.gender}</div>
@@ -94,17 +94,17 @@ const ResumePreview = forwardRef<HTMLDivElement>((props, ref) => {
       </div>
 
       {/* Skills and Expertise */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-900">Skills & Expertise</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+      <div className="mb-5">
+        <h2 className="text-lg font-bold text-gray-900 mb-3 pb-1 border-b border-gray-900">Skills & Expertise</h2>
+        <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <h3 className="text-lg font-semibold text-gray-800 mb-3 bg-gray-900 text-white px-3 py-1 rounded">Design & Creative</h3>
-            <div className="space-y-3">
+            <h3 className="text-sm font-semibold text-gray-800 mb-2 bg-gray-900 text-white px-2 py-1 rounded">Design & Creative</h3>
+            <div className="space-y-1">
               {skillsData.design.map((skill, index) => (
                 <div key={index} className="flex justify-between items-center">
-                  <span className="text-sm font-medium">{skill.name}</span>
-                  <div className="flex items-center gap-2">
-                    <div className="w-24 h-2 bg-gray-200 rounded-full">
+                  <span className="text-xs font-medium">{skill.name}</span>
+                  <div className="flex items-center gap-1">
+                    <div className="w-16 h-1.5 bg-gray-200 rounded-full">
                       <div 
                         className="h-full bg-gray-900 rounded-full" 
                         style={{ width: `${skill.level}%` }}
@@ -117,13 +117,13 @@ const ResumePreview = forwardRef<HTMLDivElement>((props, ref) => {
             </div>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-gray-800 mb-3 bg-gray-900 text-white px-3 py-1 rounded">Development</h3>
-            <div className="space-y-3">
+            <h3 className="text-sm font-semibold text-gray-800 mb-2 bg-gray-900 text-white px-2 py-1 rounded">Development</h3>
+            <div className="space-y-1">
               {skillsData.development.map((skill, index) => (
                 <div key={index} className="flex justify-between items-center">
-                  <span className="text-sm font-medium">{skill.name}</span>
-                  <div className="flex items-center gap-2">
-                    <div className="w-24 h-2 bg-gray-200 rounded-full">
+                  <span className="text-xs font-medium">{skill.name}</span>
+                  <div className="flex items-center gap-1">
+                    <div className="w-16 h-1.5 bg-gray-200 rounded-full">
                       <div 
                         className="h-full bg-gray-900 rounded-full" 
                         style={{ width: `${skill.level}%` }}
@@ -139,25 +139,25 @@ const ResumePreview = forwardRef<HTMLDivElement>((props, ref) => {
       </div>
 
       {/* Education */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-900">Education</h2>
-        <div className="bg-gray-50 p-4 rounded-lg border-l-4 border-gray-900">
-          <h3 className="text-lg font-semibold text-gray-800">{education.degree}</h3>
-          <p className="text-gray-700 font-medium">{education.major}</p>
-          <p className="text-sm text-gray-600">{education.period}</p>
+      <div className="mb-4">
+        <h2 className="text-lg font-bold text-gray-900 mb-2 pb-1 border-b border-gray-900">Education</h2>
+        <div className="bg-gray-50 p-2 rounded-lg border-l-4 border-gray-900">
+          <h3 className="text-sm font-semibold text-gray-800">{education.degree}</h3>
+          <p className="text-xs text-gray-700 font-medium">{education.major}</p>
+          <p className="text-xs text-gray-600">{education.period}</p>
         </div>
       </div>
 
       {/* Experience */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-900">Professional Experience</h2>
-        <div className="space-y-6">
+      <div className="mb-4">
+        <h2 className="text-lg font-bold text-gray-900 mb-2 pb-1 border-b border-gray-900">Professional Experience</h2>
+        <div className="space-y-3">
           {experience.map((exp, index) => (
-            <div key={index} className="bg-gray-50 p-4 rounded-lg border-l-4 border-gray-900">
-              <h3 className="text-lg font-semibold text-gray-800">{exp.title}</h3>
-              <p className="text-gray-700 font-medium">{exp.company}</p>
-              <p className="text-sm text-gray-600 mb-2">{exp.period}</p>
-              <p className="text-sm text-gray-700">{exp.description}</p>
+            <div key={index} className="bg-gray-50 p-2 rounded-lg border-l-4 border-gray-900">
+              <h3 className="text-sm font-semibold text-gray-800">{exp.title}</h3>
+              <p className="text-xs text-gray-700 font-medium">{exp.company}</p>
+              <p className="text-xs text-gray-600 mb-1">{exp.period}</p>
+              <p className="text-xs text-gray-700">{exp.description}</p>
             </div>
           ))}
         </div>
