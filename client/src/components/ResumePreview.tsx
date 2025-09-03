@@ -18,20 +18,20 @@ const ResumePreview = forwardRef<HTMLDivElement>((props, ref) => {
 
   const skillsData = {
     design: [
-      { name: 'Adobe Photoshop', level: 95 },
-      { name: 'Adobe Illustrator', level: 90 },
-      { name: 'Canva', level: 85 },
-      { name: 'Blender', level: 80 },
-      { name: 'Acrylic Painting', level: 92 },
-      { name: 'Charcoal Drawing', level: 88 }
+      { name: 'Adobe Photoshop', level: 85 },
+      { name: 'Adobe Illustrator', level: 85 },
+      { name: 'Canva', level: 90 },
+      { name: 'Blender', level: 75 },
+      { name: 'Acrylic Painting', level: 100 },
+      { name: 'Charcoal Drawing', level: 100 }
     ],
     development: [
-      { name: 'Node.js', level: 88 },
-      { name: 'React', level: 92 },
-      { name: 'JavaScript/TypeScript', level: 90 },
-      { name: 'HTML/CSS', level: 95 },
+      { name: 'Node.js', level: 80 },
+      { name: 'React', level: 80 },
+      { name: 'JavaScript/TypeScript', level: 80 },
+      { name: 'HTML/CSS', level: 80 },
       { name: 'Database Management', level: 85 },
-      { name: 'Web Development', level: 92 }
+      { name: 'Web Development', level: 90 }
     ]
   };
 
