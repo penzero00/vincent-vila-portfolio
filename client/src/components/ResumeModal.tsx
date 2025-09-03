@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { X, Download, Eye } from 'lucide-react';
+import { useReactToPrint } from 'react-to-print';
 import ResumePreview from './ResumePreview';
 
 interface ResumeModalProps {
@@ -10,53 +11,25 @@ interface ResumeModalProps {
 export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
   const resumeRef = useRef<HTMLDivElement>(null);
 
-  const handlePrint = () => {
-    const printWindow = window.open('', '_blank');
-    if (!printWindow || !resumeRef.current) return;
-    
-    const resumeContent = resumeRef.current.innerHTML;
-    
-    printWindow.document.write(`
-      <!DOCTYPE html>
-      <html>
-        <head>
-          <title>VilaVincentV_Resume</title>
-          <style>
-            @page {
-              size: A4;
-              margin: 0.3in;
-            }
-            body {
-              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-              margin: 0;
-              padding: 0;
-              -webkit-print-color-adjust: exact;
-              color-adjust: exact;
-            }
-            * {
-              box-sizing: border-box;
-            }
-            @media print {
-              body { margin: 0; }
-              @page { margin: 0.3in; }
-            }
-          </style>
-        </head>
-        <body>
-          ${resumeContent}
-        </body>
-      </html>
-    `);
-    
-    printWindow.document.close();
-    printWindow.focus();
-    
-    // Small delay to ensure content is rendered
-    setTimeout(() => {
-      printWindow.print();
-      printWindow.close();
-    }, 500);
-  };
+  const handlePrint = useReactToPrint({
+    contentRef: resumeRef,
+    documentTitle: 'VilaVincentV_Resume',
+    pageStyle: `
+      @page {
+        size: A4;
+        margin: 0.3in;
+      }
+      @media print {
+        body {
+          -webkit-print-color-adjust: exact;
+          color-adjust: exact;
+        }
+        @page {
+          margin: 0;
+        }
+      }
+    `,
+  });
 
   if (!isOpen) return null;
 
