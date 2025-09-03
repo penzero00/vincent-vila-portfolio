@@ -4,11 +4,17 @@ export default function SkillsSection() {
     { name: 'Adobe Illustrator', level: 85 },
     { name: 'Canva', level: 90 },
     { name: 'Blender', level: 75 },
+    { name: 'Acrylic Painting', level: 100 },
+    { name: 'Charcoal Drawing', level: 100 },
   ];
 
   const developmentSkills = [
     { name: 'Node.js', level: 80 },
     { name: 'React', level: 80 },
+    { name: 'JavaScript/TypeScript', level: 80 },
+    { name: 'HTML/CSS', level: 80 },
+    { name: 'Database Management', level: 85 },
+    { name: 'Web Development', level: 90 },
   ];
 
   const SkillBar = ({ skill }: { skill: { name: string; level: number } }) => (
