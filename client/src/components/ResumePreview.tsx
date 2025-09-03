@@ -58,7 +58,7 @@ const ResumePreview = forwardRef<HTMLDivElement>((props, ref) => {
       title: 'Freelance Software Developer',
       company: 'Self-Employed',
       period: '2022 - Present',
-      description: 'Developing interactive web applications, desktop software, and user-friendly digital solutions using modern technologies.'
+      description: 'Developing and designing interactive and user-friendly web application and desktop software'
     }
   ];
 

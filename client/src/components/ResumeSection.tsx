@@ -74,9 +74,6 @@ export default function ResumeSection() {
                     <p className="text-muted-foreground text-sm" data-testid="text-job-period-3">
                       2022 - Present
                     </p>
-                    <p className="text-sm mt-2" data-testid="text-job-description-3">
-                      Developing interactive web applications, desktop software, and user-friendly digital solutions using modern technologies.
-                    </p>
                   </div>
                 </div>
               </div>
