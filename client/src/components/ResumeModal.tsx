@@ -13,7 +13,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
 
   const handlePrint = useReactToPrint({
     contentRef: resumeRef,
-    documentTitle: 'Vincent_Vila_Resume',
+    documentTitle: 'VilaVincentV_Resume',
     pageStyle: `
       @page {
         size: A4;
