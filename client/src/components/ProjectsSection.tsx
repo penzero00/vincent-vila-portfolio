@@ -16,7 +16,14 @@ export default function ProjectsSection() {
   const [previewFile, setPreviewFile] = useState<ProjectFile | null>(null);
 
   const { data: projectData, isLoading } = useQuery<ProjectData>({
-    queryKey: ['/api/projects'],
+    queryKey: ['projects'],
+    queryFn: async () => {
+      const response = await fetch('/vincent-vila-portfolio/projects.json');
+      if (!response.ok) {
+        throw new Error('Failed to fetch projects');
+      }
+      return response.json();
+    },
     enabled: true,
   });
 
