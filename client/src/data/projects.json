@@ -1,0 +1,511 @@
+{
+  "web-applications": [
+    {
+      "name": "1",
+      "path": "./assets/web-applications/1.png",
+      "type": "image/png",
+      "size": 221997,
+      "lastModified": "2025-09-03T06:52:15.221Z"
+    },
+    {
+      "name": "2",
+      "path": "./assets/web-applications/2.png",
+      "type": "image/png",
+      "size": 146284,
+      "lastModified": "2025-09-03T06:52:22.891Z"
+    }
+  ],
+  "digital-designs": [
+    {
+      "name": "1",
+      "path": "./assets/digital-designs/1.png",
+      "type": "image/png",
+      "size": 568016,
+      "lastModified": "2025-08-12T06:24:13.035Z"
+    },
+    {
+      "name": "2",
+      "path": "./assets/digital-designs/2.png",
+      "type": "image/png",
+      "size": 228360,
+      "lastModified": "2025-08-12T06:27:51.688Z"
+    },
+    {
+      "name": "3",
+      "path": "./assets/digital-designs/3.png",
+      "type": "image/png",
+      "size": 169319,
+      "lastModified": "2024-04-02T13:21:48.000Z"
+    },
+    {
+      "name": "4",
+      "path": "./assets/digital-designs/4.png",
+      "type": "image/png",
+      "size": 173152,
+      "lastModified": "2024-04-02T13:21:06.000Z"
+    },
+    {
+      "name": "5",
+      "path": "./assets/digital-designs/5.png",
+      "type": "image/png",
+      "size": 561948,
+      "lastModified": "2024-04-02T13:42:30.000Z"
+    },
+    {
+      "name": "6",
+      "path": "./assets/digital-designs/6.png",
+      "type": "image/png",
+      "size": 586890,
+      "lastModified": "2024-04-02T13:41:38.000Z"
+    }
+  ],
+  "digital-art": [
+    {
+      "name": "1",
+      "path": "./assets/digital-art/1.png",
+      "type": "image/png",
+      "size": 1626498,
+      "lastModified": "2025-02-08T07:21:38.000Z"
+    },
+    {
+      "name": "2",
+      "path": "./assets/digital-art/2.png",
+      "type": "image/png",
+      "size": 2994970,
+      "lastModified": "2025-03-28T02:38:34.000Z"
+    },
+    {
+      "name": "3",
+      "path": "./assets/digital-art/3.png",
+      "type": "image/png",
+      "size": 3099446,
+      "lastModified": "2025-03-28T02:38:48.000Z"
+    },
+    {
+      "name": "4",
+      "path": "./assets/digital-art/4.png",
+      "type": "image/png",
+      "size": 628514,
+      "lastModified": "2025-05-07T04:23:32.454Z"
+    },
+    {
+      "name": "5",
+      "path": "./assets/digital-art/5.jpg",
+      "type": "image/jpeg",
+      "size": 71446,
+      "lastModified": "2025-09-03T15:56:25.803Z"
+    }
+  ],
+  "portraits": [
+    {
+      "name": "1",
+      "path": "./assets/portraits/1.jpg",
+      "type": "image/jpeg",
+      "size": 206176,
+      "lastModified": "2025-08-24T15:13:18.376Z"
+    },
+    {
+      "name": "2",
+      "path": "./assets/portraits/2.jpg",
+      "type": "image/jpeg",
+      "size": 214113,
+      "lastModified": "2025-08-24T15:27:06.365Z"
+    },
+    {
+      "name": "3",
+      "path": "./assets/portraits/3.jpg",
+      "type": "image/jpeg",
+      "size": 141695,
+      "lastModified": "2025-08-24T15:27:12.908Z"
+    },
+    {
+      "name": "4",
+      "path": "./assets/portraits/4.jpg",
+      "type": "image/jpeg",
+      "size": 181413,
+      "lastModified": "2025-08-24T15:13:26.257Z"
+    },
+    {
+      "name": "5",
+      "path": "./assets/portraits/5.jpg",
+      "type": "image/jpeg",
+      "size": 29367,
+      "lastModified": "2025-08-24T15:10:37.302Z"
+    },
+    {
+      "name": "6",
+      "path": "./assets/portraits/6.jpg",
+      "type": "image/jpeg",
+      "size": 20152,
+      "lastModified": "2025-08-24T15:10:41.617Z"
+    },
+    {
+      "name": "7",
+      "path": "./assets/portraits/7.jpg",
+      "type": "image/jpeg",
+      "size": 230289,
+      "lastModified": "2025-08-24T15:10:24.397Z"
+    },
+    {
+      "name": "8",
+      "path": "./assets/portraits/8.jpg",
+      "type": "image/jpeg",
+      "size": 55311,
+      "lastModified": "2025-08-24T15:10:32.457Z"
+    },
+    {
+      "name": "9",
+      "path": "./assets/portraits/9.jpg",
+      "type": "image/jpeg",
+      "size": 183558,
+      "lastModified": "2025-08-24T15:13:30.333Z"
+    },
+    {
+      "name": "10",
+      "path": "./assets/portraits/10.jpg",
+      "type": "image/jpeg",
+      "size": 24700,
+      "lastModified": "2025-08-24T15:12:23.046Z"
+    },
+    {
+      "name": "11",
+      "path": "./assets/portraits/11.jpg",
+      "type": "image/jpeg",
+      "size": 18526,
+      "lastModified": "2025-08-24T15:10:50.661Z"
+    },
+    {
+      "name": "12",
+      "path": "./assets/portraits/12.jpg",
+      "type": "image/jpeg",
+      "size": 188055,
+      "lastModified": "2025-08-24T15:10:54.877Z"
+    },
+    {
+      "name": "13",
+      "path": "./assets/portraits/13.jpg",
+      "type": "image/jpeg",
+      "size": 230704,
+      "lastModified": "2025-08-24T15:13:22.427Z"
+    },
+    {
+      "name": "14",
+      "path": "./assets/portraits/14.jpg",
+      "type": "image/jpeg",
+      "size": 63682,
+      "lastModified": "2025-08-24T15:11:00.687Z"
+    },
+    {
+      "name": "15",
+      "path": "./assets/portraits/15.jpg",
+      "type": "image/jpeg",
+      "size": 58143,
+      "lastModified": "2025-08-24T15:11:14.567Z"
+    },
+    {
+      "name": "16",
+      "path": "./assets/portraits/16.jpg",
+      "type": "image/jpeg",
+      "size": 37970,
+      "lastModified": "2025-08-24T15:11:06.030Z"
+    },
+    {
+      "name": "17",
+      "path": "./assets/portraits/17.jpg",
+      "type": "image/jpeg",
+      "size": 87220,
+      "lastModified": "2025-08-24T15:11:10.259Z"
+    },
+    {
+      "name": "18",
+      "path": "./assets/portraits/18.jpg",
+      "type": "image/jpeg",
+      "size": 80998,
+      "lastModified": "2025-08-24T15:11:20.084Z"
+    }
+  ],
+  "murals": [
+    {
+      "name": "1",
+      "path": "./assets/murals/1.jpg",
+      "type": "image/jpeg",
+      "size": 276760,
+      "lastModified": "2025-08-24T15:26:49.576Z"
+    },
+    {
+      "name": "2",
+      "path": "./assets/murals/2.jpg",
+      "type": "image/jpeg",
+      "size": 244561,
+      "lastModified": "2025-08-24T15:26:53.702Z"
+    },
+    {
+      "name": "3",
+      "path": "./assets/murals/3.jpg",
+      "type": "image/jpeg",
+      "size": 363413,
+      "lastModified": "2025-08-24T16:14:52.838Z"
+    },
+    {
+      "name": "4",
+      "path": "./assets/murals/4.jpg",
+      "type": "image/jpeg",
+      "size": 294514,
+      "lastModified": "2025-08-24T16:15:11.246Z"
+    },
+    {
+      "name": "5",
+      "path": "./assets/murals/5.jpg",
+      "type": "image/jpeg",
+      "size": 172151,
+      "lastModified": "2025-08-24T15:25:55.435Z"
+    },
+    {
+      "name": "6",
+      "path": "./assets/murals/6.jpg",
+      "type": "image/jpeg",
+      "size": 412762,
+      "lastModified": "2025-08-24T15:26:45.760Z"
+    },
+    {
+      "name": "7",
+      "path": "./assets/murals/7.jpg",
+      "type": "image/jpeg",
+      "size": 47718,
+      "lastModified": "2025-08-24T15:26:32.776Z"
+    },
+    {
+      "name": "8",
+      "path": "./assets/murals/8.jpg",
+      "type": "image/jpeg",
+      "size": 47026,
+      "lastModified": "2025-08-24T15:26:36.949Z"
+    },
+    {
+      "name": "9",
+      "path": "./assets/murals/9.jpg",
+      "type": "image/jpeg",
+      "size": 409528,
+      "lastModified": "2025-08-24T15:26:41.485Z"
+    },
+    {
+      "name": "10",
+      "path": "./assets/murals/10.jpg",
+      "type": "image/jpeg",
+      "size": 252399,
+      "lastModified": "2025-08-24T15:40:09.081Z"
+    },
+    {
+      "name": "11",
+      "path": "./assets/murals/11.jpg",
+      "type": "image/jpeg",
+      "size": 40932,
+      "lastModified": "2025-08-24T15:40:02.860Z"
+    },
+    {
+      "name": "12",
+      "path": "./assets/murals/12.mp4",
+      "type": "video/mp4",
+      "size": 1720130,
+      "lastModified": "2025-08-24T15:35:08.202Z"
+    },
+    {
+      "name": "13",
+      "path": "./assets/murals/13.mp4",
+      "type": "video/mp4",
+      "size": 1320450,
+      "lastModified": "2025-08-24T15:34:36.494Z"
+    }
+  ],
+  "3d-models": [
+    {
+      "name": "1",
+      "path": "./assets/3d-models/1.png",
+      "type": "image/png",
+      "size": 2003396,
+      "lastModified": "2025-08-30T01:06:08.947Z"
+    },
+    {
+      "name": "2",
+      "path": "./assets/3d-models/2.png",
+      "type": "image/png",
+      "size": 1567482,
+      "lastModified": "2025-08-30T02:39:43.271Z"
+    },
+    {
+      "name": "3",
+      "path": "./assets/3d-models/3.png",
+      "type": "image/png",
+      "size": 2097003,
+      "lastModified": "2025-08-30T02:06:51.094Z"
+    },
+    {
+      "name": "4",
+      "path": "./assets/3d-models/4.png",
+      "type": "image/png",
+      "size": 1845724,
+      "lastModified": "2025-08-30T00:51:37.905Z"
+    },
+    {
+      "name": "5",
+      "path": "./assets/3d-models/5.png",
+      "type": "image/png",
+      "size": 1775943,
+      "lastModified": "2025-08-30T07:24:55.417Z"
+    },
+    {
+      "name": "6",
+      "path": "./assets/3d-models/6.png",
+      "type": "image/png",
+      "size": 2434142,
+      "lastModified": "2025-08-30T00:12:12.276Z"
+    },
+    {
+      "name": "7",
+      "path": "./assets/3d-models/7.png",
+      "type": "image/png",
+      "size": 2493079,
+      "lastModified": "2025-08-30T02:00:47.143Z"
+    },
+    {
+      "name": "8",
+      "path": "./assets/3d-models/8.png",
+      "type": "image/png",
+      "size": 3035022,
+      "lastModified": "2025-05-29T18:03:41.000Z"
+    },
+    {
+      "name": "9",
+      "path": "./assets/3d-models/9.png",
+      "type": "image/png",
+      "size": 2512498,
+      "lastModified": "2025-06-01T01:42:41.000Z"
+    },
+    {
+      "name": "10",
+      "path": "./assets/3d-models/10.png",
+      "type": "image/png",
+      "size": 2604707,
+      "lastModified": "2025-05-29T19:43:16.000Z"
+    },
+    {
+      "name": "11",
+      "path": "./assets/3d-models/11.png",
+      "type": "image/png",
+      "size": 2465765,
+      "lastModified": "2025-05-29T16:57:38.000Z"
+    },
+    {
+      "name": "12",
+      "path": "./assets/3d-models/12.png",
+      "type": "image/png",
+      "size": 570804,
+      "lastModified": "2025-02-13T12:48:04.000Z"
+    },
+    {
+      "name": "13",
+      "path": "./assets/3d-models/13.png",
+      "type": "image/png",
+      "size": 487851,
+      "lastModified": "2025-02-13T12:49:43.000Z"
+    },
+    {
+      "name": "14",
+      "path": "./assets/3d-models/14.png",
+      "type": "image/png",
+      "size": 448674,
+      "lastModified": "2025-02-13T12:46:32.000Z"
+    },
+    {
+      "name": "15",
+      "path": "./assets/3d-models/15.png",
+      "type": "image/png",
+      "size": 472048,
+      "lastModified": "2025-02-13T12:51:57.000Z"
+    },
+    {
+      "name": "16",
+      "path": "./assets/3d-models/16.png",
+      "type": "image/png",
+      "size": 501524,
+      "lastModified": "2025-02-13T12:36:40.000Z"
+    },
+    {
+      "name": "17",
+      "path": "./assets/3d-models/17.png",
+      "type": "image/png",
+      "size": 383318,
+      "lastModified": "2025-02-13T12:42:31.000Z"
+    },
+    {
+      "name": "18",
+      "path": "./assets/3d-models/18.png",
+      "type": "image/png",
+      "size": 229451,
+      "lastModified": "2025-02-13T12:44:28.000Z"
+    },
+    {
+      "name": "19",
+      "path": "./assets/3d-models/19.png",
+      "type": "image/png",
+      "size": 1774218,
+      "lastModified": "2025-02-20T01:06:42.000Z"
+    },
+    {
+      "name": "20",
+      "path": "./assets/3d-models/20.png",
+      "type": "image/png",
+      "size": 1276122,
+      "lastModified": "2025-05-09T12:38:06.136Z"
+    },
+    {
+      "name": "21",
+      "path": "./assets/3d-models/21.png",
+      "type": "image/png",
+      "size": 2000372,
+      "lastModified": "2025-05-03T09:49:21.900Z"
+    },
+    {
+      "name": "22",
+      "path": "./assets/3d-models/22.png",
+      "type": "image/png",
+      "size": 2306714,
+      "lastModified": "2025-05-03T10:09:43.060Z"
+    },
+    {
+      "name": "23",
+      "path": "./assets/3d-models/23.png",
+      "type": "image/png",
+      "size": 2440383,
+      "lastModified": "2025-05-03T11:43:43.033Z"
+    },
+    {
+      "name": "24",
+      "path": "./assets/3d-models/24.png",
+      "type": "image/png",
+      "size": 2875991,
+      "lastModified": "2025-05-03T11:52:17.950Z"
+    },
+    {
+      "name": "25",
+      "path": "./assets/3d-models/25.png",
+      "type": "image/png",
+      "size": 2383912,
+      "lastModified": "2025-05-03T12:03:23.261Z"
+    },
+    {
+      "name": "26",
+      "path": "./assets/3d-models/26.png",
+      "type": "image/png",
+      "size": 2232861,
+      "lastModified": "2025-05-03T22:17:03.646Z"
+    },
+    {
+      "name": "27",
+      "path": "./assets/3d-models/27.mp4",
+      "type": "video/mp4",
+      "size": 2426062,
+      "lastModified": "2025-05-04T10:29:59.325Z"
+    }
+  ]
+}

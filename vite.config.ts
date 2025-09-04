@@ -27,7 +27,13 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
+    rollupOptions: {
+      output: {
+        assetFileNames: 'assets/[name].[ext]'
+      }
+    }
   },
+  publicDir: path.resolve(import.meta.dirname, "public"),
   // Use relative paths for better compatibility
   base: "./",
   server: {
