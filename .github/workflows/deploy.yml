@@ -36,7 +36,7 @@ jobs:
         run: npm ci
         
       - name: Build for GitHub Pages
-        run: npm run build
+        run: npm run build:github-pages
         env:
           NODE_ENV: production
           
