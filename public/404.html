@@ -4,30 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vicente Vila Portfolio</title>
+    <script>
+        // Simple redirect to index for SPA
+        window.location.replace('/vincent-vila-portfolio/');
+    </script>
 </head>
 <body>
-    <div id="root"></div>
-    <script>
-        // Handle GitHub Pages SPA routing
-        (function() {
-            var redirect = sessionStorage.redirect;
-            delete sessionStorage.redirect;
-            if (redirect && redirect != location.href) {
-                history.replaceState(null, null, redirect);
-            }
-        })();
-    </script>
-    <script>
-        // Redirect to index.html for SPA
-        const pathSegmentsToKeep = 1;
-        const l = window.location;
-        l.replace(
-            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-            l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + '/?/' +
-            l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') +
-            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-            l.hash
-        );
-    </script>
+    <p>Redirecting to portfolio...</p>
 </body>
 </html>
