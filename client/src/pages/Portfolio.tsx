@@ -48,15 +48,6 @@ export default function Portfolio() {
         <ProjectsSection />
         <ResumeSection />
         <ContactSection />
-        
-        {/* Footer */}
-        <footer className="py-8 border-t border-border">
-          <div className="container mx-auto px-6 text-center">
-            <p className="text-muted-foreground">
-              © 2024 Vincent V. Vila. All rights reserved.
-            </p>
-          </div>
-        </footer>
       </div>
     </div>
   );

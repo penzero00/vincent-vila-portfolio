@@ -28,6 +28,8 @@ export default defineConfig({
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
   },
+  // Base path for GitHub Pages deployment
+  base: process.env.NODE_ENV === 'production' ? '/vincent-vila-portfolio/' : '/',
   server: {
     fs: {
       strict: true,

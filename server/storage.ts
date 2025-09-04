@@ -68,6 +68,10 @@ export class FileSystemStorage implements IStorage {
             '.mp4': 'video/mp4',
             '.mov': 'video/quicktime',
             '.avi': 'video/x-msvideo',
+            '.webm': 'video/webm',
+            '.mkv': 'video/x-matroska',
+            '.flv': 'video/x-flv',
+            '.wmv': 'video/x-ms-wmv',
             '.zip': 'application/zip',
             '.blend': 'application/x-blender',
             '.psd': 'image/vnd.adobe.photoshop',
@@ -89,11 +93,38 @@ export class FileSystemStorage implements IStorage {
       }
 
       return projectFiles.sort((a, b) => {
-        // Sort by last modified date, newest first
-        if (a.lastModified && b.lastModified) {
-          return b.lastModified.getTime() - a.lastModified.getTime();
-        }
-        return a.name.localeCompare(b.name);
+        // Natural sort function for numerical ordering
+        const naturalSort = (str1: string, str2: string): number => {
+          // Split strings into chunks of numbers and letters
+          const chunks1 = str1.match(/(\d+|\D+)/g) || [];
+          const chunks2 = str2.match(/(\d+|\D+)/g) || [];
+          
+          const maxLength = Math.max(chunks1.length, chunks2.length);
+          
+          for (let i = 0; i < maxLength; i++) {
+            const chunk1 = chunks1[i] || '';
+            const chunk2 = chunks2[i] || '';
+            
+            // If both chunks are numbers, compare numerically
+            if (/^\d+$/.test(chunk1) && /^\d+$/.test(chunk2)) {
+              const num1 = parseInt(chunk1, 10);
+              const num2 = parseInt(chunk2, 10);
+              if (num1 !== num2) {
+                return num1 - num2;
+              }
+            } else {
+              // Compare as strings
+              if (chunk1 !== chunk2) {
+                return chunk1.localeCompare(chunk2);
+              }
+            }
+          }
+          
+          return 0;
+        };
+
+        // Sort by filename using natural sort for numerical ordering
+        return naturalSort(a.name, b.name);
       });
       
     } catch (error) {

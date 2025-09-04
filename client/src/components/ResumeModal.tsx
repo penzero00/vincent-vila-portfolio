@@ -17,15 +17,20 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
     pageStyle: `
       @page {
         size: A4;
-        margin: 0.3in;
+        margin: 0.2in;
       }
       @media print {
         body {
           -webkit-print-color-adjust: exact;
           color-adjust: exact;
+          font-size: 0.9em;
         }
-        @page {
-          margin: 0;
+        * {
+          box-sizing: border-box;
+        }
+        .resume-container {
+          max-height: 100vh;
+          overflow: hidden;
         }
       }
     `,

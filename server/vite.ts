@@ -40,6 +40,10 @@ export async function setupVite(app: Express, server: Server) {
     appType: "custom",
   });
 
+  // Serve static assets from public directory
+  const publicPath = path.resolve(import.meta.dirname, "..", "public");
+  app.use("/assets", express.static(path.join(publicPath, "assets")));
+
   app.use(vite.middlewares);
   app.use("*", async (req, res, next) => {
     const url = req.originalUrl;
@@ -76,6 +80,8 @@ export function serveStatic(app: Express) {
     );
   }
 
+  // Serve assets separately for both dev and production
+  app.use("/assets", express.static(path.join(distPath, "assets")));
   app.use(express.static(distPath));
 
   // fall through to index.html if the file doesn't exist

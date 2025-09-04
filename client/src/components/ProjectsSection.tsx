@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { Code, Palette, PaintBucket, Image, Box, Brush, X } from 'lucide-react';
+import { Code, Palette, PaintBucket, Image, Box, Brush, X, Play, ExternalLink, ZoomIn } from 'lucide-react';
 import { type ProjectFile, type ProjectData } from '@shared/schema';
 
 interface ProjectCategory {
@@ -13,6 +13,7 @@ interface ProjectCategory {
 
 export default function ProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [previewFile, setPreviewFile] = useState<ProjectFile | null>(null);
 
   const { data: projectData, isLoading } = useQuery<ProjectData>({
     queryKey: ['/api/projects'],
@@ -72,6 +73,51 @@ export default function ProjectsSection() {
     ? categories.find(cat => cat.id === selectedCategory)
     : null;
 
+  const isVideo = (type: string) => type.startsWith('video/');
+  const isImage = (type: string) => type.startsWith('image/');
+
+  const handleFileClick = (file: ProjectFile) => {
+    if (isImage(file.type) || isVideo(file.type)) {
+      setPreviewFile(file);
+    }
+  };
+
+  const closePreview = () => {
+    setPreviewFile(null);
+  };
+
+  // Extract URL from filename for web applications
+  const extractUrlFromFilename = (filename: string): string | null => {
+    // Look for URLs in parentheses like "(neoart-ai.42web.io)"
+    const urlMatch = filename.match(/\(([^)]+)\)/);
+    if (urlMatch && urlMatch[1]) {
+      let url = urlMatch[1];
+      // Add protocol if missing
+      if (!url.startsWith('http://') && !url.startsWith('https://')) {
+        url = 'https://' + url;
+      }
+      return url;
+    }
+    return null;
+  };
+
+  // Handle keyboard events for modal
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && previewFile) {
+        closePreview();
+      }
+    };
+
+    if (previewFile) {
+      document.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [previewFile]);
+
   return (
     <section id="projects" className="section-padding">
       <div className="container mx-auto px-6">
@@ -126,25 +172,56 @@ export default function ProjectsSection() {
               <div className="grid md:grid-cols-3 gap-6" data-testid="grid-projects">
                 {getCategoryFiles(selectedCategory).length > 0 ? (
                   getCategoryFiles(selectedCategory).map((file, index) => (
-                    <div key={index} className="glass-effect rounded-xl p-6">
-                      <div className="bg-muted rounded-lg h-48 mb-4 flex items-center justify-center">
-                        {file.type.startsWith('image/') ? (
-                          <img
-                            src={file.path}
-                            alt={file.name}
-                            className="w-full h-full object-cover rounded-lg"
-                            data-testid={`img-project-${index}`}
-                          />
+                    <div 
+                      key={index} 
+                      className="glass-effect rounded-xl p-4 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-1 hover:shadow-lg group"
+                      onClick={() => handleFileClick(file)}
+                    >
+                      <div className="bg-muted rounded-lg h-48 flex items-center justify-center overflow-hidden relative">
+                        {isImage(file.type) ? (
+                          <>
+                            <img
+                              src={file.path}
+                              alt="Project showcase"
+                              className="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
+                              data-testid={`img-project-${index}`}
+                            />
+                            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center rounded-lg">
+                              <ZoomIn className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" size={32} />
+                            </div>
+                            {/* Show link for web applications */}
+                            {selectedCategory === 'web-applications' && extractUrlFromFilename(file.name) && (
+                              <div className="absolute top-2 right-2">
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    const url = extractUrlFromFilename(file.name);
+                                    if (url) window.open(url, '_blank');
+                                  }}
+                                  className="bg-accent text-white p-2 rounded-full hover:bg-accent/80 transition-colors shadow-lg"
+                                  title="Visit website"
+                                >
+                                  <ExternalLink size={16} />
+                                </button>
+                              </div>
+                            )}
+                          </>
+                        ) : isVideo(file.type) ? (
+                          <>
+                            <video
+                              src={file.path}
+                              className="w-full h-full object-cover rounded-lg"
+                              muted
+                              data-testid={`video-project-${index}`}
+                            />
+                            <div className="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center rounded-lg">
+                              <Play className="text-white" size={32} />
+                            </div>
+                          </>
                         ) : (
                           <Image size={48} className="text-muted-foreground" />
                         )}
                       </div>
-                      <h4 className="font-semibold mb-2" data-testid={`title-project-${index}`}>
-                        {file.name}
-                      </h4>
-                      <p className="text-muted-foreground text-sm">
-                        {file.type}
-                      </p>
                     </div>
                   ))
                 ) : (
@@ -158,6 +235,38 @@ export default function ProjectsSection() {
                   </div>
                 )}
               </div>
+            </div>
+          </div>
+        )}
+        
+        {/* Media Preview Modal */}
+        {previewFile && (
+          <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 p-4">
+            <div className="relative max-w-5xl max-h-[90vh] w-full h-full flex items-center justify-center">
+              <button
+                onClick={closePreview}
+                className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10 bg-black bg-opacity-50 rounded-full p-2"
+                data-testid="button-close-preview"
+              >
+                <X size={24} />
+              </button>
+              
+              {isImage(previewFile.type) ? (
+                <img
+                  src={previewFile.path}
+                  alt="Project preview"
+                  className="max-w-full max-h-full object-contain rounded-lg"
+                  data-testid="preview-image"
+                />
+              ) : isVideo(previewFile.type) ? (
+                <video
+                  src={previewFile.path}
+                  controls
+                  autoPlay
+                  className="max-w-full max-h-full object-contain rounded-lg"
+                  data-testid="preview-video"
+                />
+              ) : null}
             </div>
           </div>
         )}
