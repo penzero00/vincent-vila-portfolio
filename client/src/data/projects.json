@@ -319,6 +319,13 @@
   ],
   "3d-models": [
     {
+      "name": "0",
+      "path": "/vincent-vila-portfolio/assets/3d-models/0.mp4",
+      "type": "video/mp4",
+      "size": 1187394,
+      "lastModified": "2025-09-06T21:55:31.000Z"
+    },
+    {
       "name": "1",
       "path": "/vincent-vila-portfolio/assets/3d-models/1.png",
       "type": "image/png",
