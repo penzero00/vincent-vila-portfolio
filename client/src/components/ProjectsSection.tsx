@@ -18,7 +18,7 @@ export default function ProjectsSection() {
   const { data: projectData, isLoading } = useQuery<ProjectData>({
     queryKey: ['projects'],
     queryFn: async () => {
-      const response = await fetch('/vincent-vila-portfolio/projects.json');
+      const response = await fetch(`/vincent-vila-portfolio/projects.json?t=${Date.now()}`);
       if (!response.ok) {
         throw new Error('Failed to fetch projects');
       }
