@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+import { User, Info, Mail, Phone, MapPin, Cake, Facebook, Globe, BadgeCheck, GraduationCap, Briefcase } from 'lucide-react';
 import formalImage from '@assets/FORMAL_1756878480562.png';
 
 const ResumePreview = forwardRef<HTMLDivElement>((props, ref) => {
@@ -13,7 +14,7 @@ const ResumePreview = forwardRef<HTMLDivElement>((props, ref) => {
     contact: '09669085642',
     email: 'vincent.vila@gmail.com',
     facebook: 'facebook.com/vncntvv',
-    portfolio: 'VincentVila-Portfolio.42web.io'
+  portfolio: 'penzero00.github.io/vincent-vila-portfolio'
   };
 
   const skillsData = {
@@ -31,7 +32,9 @@ const ResumePreview = forwardRef<HTMLDivElement>((props, ref) => {
       { name: 'JavaScript/TypeScript', level: 80 },
       { name: 'HTML/CSS', level: 80 },
       { name: 'Database Management', level: 85 },
-      { name: 'Web Development', level: 90 }
+      { name: 'Web Development', level: 90 },
+      { name: 'C#', level: 90 },
+      { name: 'Java', level: 90 }
     ]
   };
 
@@ -63,42 +66,45 @@ const ResumePreview = forwardRef<HTMLDivElement>((props, ref) => {
   ];
 
   return (
-    <div ref={ref} className="resume-container bg-white text-gray-900 p-4 max-w-4xl mx-auto">
+  <div ref={ref} className="resume-container bg-white text-gray-900 p-5 max-w-4xl mx-auto text-[11px] rounded-2xl shadow-xl border border-gray-200">
       {/* Header Section with Profile */}
-      <div className="flex items-start gap-4 mb-3 pb-2 border-b-2 border-gray-900">
-        <img
-          src={formalImage}
-          alt="Vincent V. Vila"
-          className="w-32 h-32 rounded-full object-cover border-2 border-gray-900 flex-shrink-0"
-        />
+  <div className="flex items-start gap-4 mb-6 pb-2 border-b-4 border-accent">
         <div className="flex-1 pt-2">
-          <h1 className="text-xl font-bold text-gray-900 mb-1">{personalInfo.name}</h1>
-          <p className="text-sm text-gray-700 mb-2">{personalInfo.title}</p>
-          <p className="text-xs text-gray-600 leading-tight">{personalInfo.bio}</p>
+          <h1 className="text-2xl font-extrabold text-gray-900 mb-1 tracking-tight">{personalInfo.name}</h1>
+          <p className="text-base text-gray-700 mb-2 font-semibold">{personalInfo.title}</p>
+          <p className="text-sm text-gray-600 leading-tight italic">{personalInfo.bio}</p>
         </div>
       </div>
 
       {/* Personal Information */}
-      <div className="mb-3">
-        <h2 className="text-base font-bold text-gray-900 mb-2 pb-1 border-b border-gray-900">Personal Information</h2>
-        <div className="grid md:grid-cols-2 gap-1 text-xs">
-          <div><strong>Age:</strong> {personalInfo.age}</div>
-          <div><strong>Birthday:</strong> {personalInfo.birthday}</div>
-          <div><strong>Gender:</strong> {personalInfo.gender}</div>
-          <div><strong>Address:</strong> {personalInfo.address}</div>
-          <div><strong>Contact:</strong> {personalInfo.contact}</div>
-          <div><strong>Email:</strong> {personalInfo.email}</div>
-          <div className="md:col-span-2"><strong>Facebook:</strong> {personalInfo.facebook}</div>
-          <div className="md:col-span-2"><strong>Portfolio:</strong> {personalInfo.portfolio}</div>
+  <div className="mb-4">
+        <h2 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2 border-l-4 border-accent pl-3 bg-gray-50 py-1 rounded">
+          Personal Information
+        </h2>
+  <div className="bg-white px-3 py-2 rounded-lg border border-gray-200 shadow-sm">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-1 text-xs">
+            <div><span className="font-semibold">Age:</span> {personalInfo.age}</div>
+            <div><span className="font-semibold">Birthday:</span> {personalInfo.birthday}</div>
+            <div><span className="font-semibold">Gender:</span> {personalInfo.gender}</div>
+            <div><span className="font-semibold">Address:</span> {personalInfo.address}</div>
+            <div><span className="font-semibold">Contact:</span> {personalInfo.contact}</div>
+            <div><span className="font-semibold">Email:</span> {personalInfo.email}</div>
+            <div><span className="font-semibold">Facebook:</span> {personalInfo.facebook}</div>
+            <div><span className="font-semibold">Portfolio:</span> {personalInfo.portfolio}</div>
+          </div>
         </div>
       </div>
 
       {/* Skills and Expertise */}
-      <div className="mb-3">
-        <h2 className="text-base font-bold text-gray-900 mb-2 pb-1 border-b border-gray-900">Skills & Expertise</h2>
-        <div className="grid md:grid-cols-2 gap-3">
+  <div className="mb-4">
+        <h2 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2 border-l-4 border-accent pl-3 bg-gray-50 py-1 rounded">
+          Skills & Expertise
+        </h2>
+        <div className="grid grid-cols-2 gap-3">
           <div>
-            <h3 className="text-xs font-semibold text-gray-800 mb-1 bg-gray-900 text-white px-2 py-1 rounded">Design & Creative</h3>
+            <h3 className="text-xs font-semibold mb-1 bg-gray-900 text-white px-2 py-1 rounded flex items-center gap-1">
+              <User className="inline-block w-4 h-4 text-white" /> Design & Creative
+            </h3>
             <div className="space-y-0.5">
               {skillsData.design.map((skill, index) => (
                 <div key={index} className="flex justify-between items-center">
@@ -117,7 +123,9 @@ const ResumePreview = forwardRef<HTMLDivElement>((props, ref) => {
             </div>
           </div>
           <div>
-            <h3 className="text-xs font-semibold text-gray-800 mb-1 bg-gray-900 text-white px-2 py-1 rounded">Development</h3>
+            <h3 className="text-xs font-semibold mb-1 bg-gray-900 text-white px-2 py-1 rounded flex items-center gap-1">
+              <BadgeCheck className="inline-block w-4 h-4 text-white" /> Development
+            </h3>
             <div className="space-y-0.5">
               {skillsData.development.map((skill, index) => (
                 <div key={index} className="flex justify-between items-center">
@@ -139,9 +147,11 @@ const ResumePreview = forwardRef<HTMLDivElement>((props, ref) => {
       </div>
 
       {/* Education */}
-      <div className="mb-2">
-        <h2 className="text-base font-bold text-gray-900 mb-1 pb-1 border-b border-gray-900">Education</h2>
-        <div className="bg-gray-50 p-1.5 rounded-lg border-l-4 border-gray-900">
+      <div className="mb-6">
+        <h2 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2 border-l-4 border-accent pl-3 bg-gray-50 py-1 rounded">
+          Education
+        </h2>
+  <div className="bg-white px-3 py-2 rounded-lg border border-gray-200 shadow-sm">
           <h3 className="text-xs font-semibold text-gray-800">{education.degree}</h3>
           <p className="text-xs text-gray-700 font-medium">{education.major}</p>
           <p className="text-xs text-gray-600">{education.period}</p>
@@ -149,11 +159,13 @@ const ResumePreview = forwardRef<HTMLDivElement>((props, ref) => {
       </div>
 
       {/* Experience */}
-      <div className="mb-2">
-        <h2 className="text-base font-bold text-gray-900 mb-1 pb-1 border-b border-gray-900">Professional Experience</h2>
-        <div className="space-y-1.5">
+  <div className="mb-2">
+        <h2 className="text-lg font-bold text-gray-900 mb-3 flex items-center gap-2 border-l-4 border-accent pl-3 bg-gray-50 py-1 rounded">
+          Work Experience
+        </h2>
+  <div className="space-y-2.5">
           {experience.map((exp, index) => (
-            <div key={index} className="bg-gray-50 p-1.5 rounded-lg border-l-4 border-gray-900">
+            <div key={index} className="bg-white px-3 py-2 rounded-lg border border-gray-200 shadow-sm">
               <h3 className="text-xs font-semibold text-gray-800">{exp.title}</h3>
               <p className="text-xs text-gray-700 font-medium">{exp.company}</p>
               <p className="text-xs text-gray-600">{exp.period}</p>

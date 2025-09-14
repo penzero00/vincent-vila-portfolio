@@ -9,7 +9,7 @@ export default function ResumeSection() {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Professional Resume
+            Resume
           </h2>
           
           <div className="glass-effect rounded-2xl p-8 mb-8">

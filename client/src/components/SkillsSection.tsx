@@ -15,6 +15,8 @@ export default function SkillsSection() {
     { name: 'HTML/CSS', level: 80 },
     { name: 'Database Management', level: 85 },
     { name: 'Web Development', level: 90 },
+    { name: 'C#', level: 90 },
+    { name: 'Java', level: 90 },
   ];
 
   const SkillBar = ({ skill }: { skill: { name: string; level: number } }) => (

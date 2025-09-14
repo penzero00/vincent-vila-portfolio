@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { Document, Page } from 'react-pdf';
 import { useQuery } from '@tanstack/react-query';
 import { Code, Palette, PaintBucket, Image, Box, Brush, X, Play, ExternalLink, ZoomIn } from 'lucide-react';
 import { type ProjectFile, type ProjectData } from '@shared/schema';
@@ -11,14 +12,20 @@ interface ProjectCategory {
   files: ProjectFile[];
 }
 
+
 export default function ProjectsSection() {
+  const categoryGridRef = useRef<HTMLDivElement>(null);
+  const projectPanelRef = useRef<HTMLDivElement>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [previewFile, setPreviewFile] = useState<ProjectFile | null>(null);
+  const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  const base = isLocal ? '' : '/vincent-vila-portfolio';
 
+  // Main project data (fetches directly from API, not static JSON)
   const { data: projectData, isLoading } = useQuery<ProjectData>({
     queryKey: ['projects'],
     queryFn: async () => {
-      const response = await fetch(`/vincent-vila-portfolio/projects.json?t=${Date.now()}`);
+      const response = await fetch(`${base}/api/projects`);
       if (!response.ok) {
         throw new Error('Failed to fetch projects');
       }
@@ -27,11 +34,26 @@ export default function ProjectsSection() {
     enabled: true,
   });
 
+
+  // Static list of certification PNGs in public/assets/Certifications
+  const certificationImages = [
+    {
+      name: 'Trainocate Philippines, Inc. Certificate-1.png',
+      path: '/assets/Certifications/Trainocate Philippines, Inc. Certificate-1.png',
+      type: 'image/png',
+    },
+    {
+      name: 'Vincent V. Vila Basic Web Development Workshop (Aug 23) - Certificate of Participation-1.png',
+      path: '/assets/Certifications/Vincent V. Vila Basic Web Development Workshop (Aug 23) - Certificate of Participation-1.png',
+      type: 'image/png',
+    },
+  ];
+
   const categories: Omit<ProjectCategory, 'files'>[] = [
     {
       id: 'web-applications',
-      name: 'Web Applications',
-      description: 'Interactive web applications built with modern frameworks and technologies.',
+      name: 'Desktop and Web Applications',
+      description: 'Interactive desktop and web applications built with modern frameworks and technologies.',
       icon: Code,
     },
     {
@@ -64,17 +86,44 @@ export default function ProjectsSection() {
       description: '3D models, animations, and renders created with Blender and other tools.',
       icon: Box,
     },
+    {
+      id: 'certifications',
+      name: 'Certifications',
+      description: 'Professional certificates and workshop participation.',
+      icon: ExternalLink,
+    },
   ];
 
+
   const getProjectCount = (categoryId: string): number => {
+    if (categoryId === 'certifications') {
+      return certificationImages.length;
+    }
     if (!projectData) return 0;
-    return projectData[categoryId]?.length || 0;
+    // Only count entries with a valid path and type (image or video)
+    return (projectData[categoryId] || []).filter(
+      (file) => file && file.path && (file.type?.startsWith('image/') || file.type?.startsWith('video/'))
+    ).length;
   };
 
   const getCategoryFiles = (categoryId: string): ProjectFile[] => {
+    if (categoryId === 'certifications') {
+      return certificationImages;
+    }
     if (!projectData) return [];
     return projectData[categoryId] || [];
   };
+
+  // Helper to get correct asset path for local vs GitHub Pages
+  const getAssetPath = (filePath: string) => {
+    if (isLocal) {
+      // Remove /vincent-vila-portfolio prefix if present
+      return filePath.replace(/^\/vincent-vila-portfolio/, '');
+    }
+    return filePath;
+  };
+
+  // No longer need special PDF rendering; all certifications are images/videos
 
   const selectedCategoryData = selectedCategory 
     ? categories.find(cat => cat.id === selectedCategory)
@@ -131,17 +180,23 @@ export default function ProjectsSection() {
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
           Project Categories
         </h2>
-        
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+        <div ref={categoryGridRef} className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
           {categories.map((category) => {
             const IconComponent = category.icon;
             const projectCount = getProjectCount(category.id);
-            
             return (
               <div
                 key={category.id}
                 className="project-card glass-effect rounded-2xl p-8 cursor-pointer transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-xl hover:shadow-accent/20"
-                onClick={() => setSelectedCategory(category.id)}
+                onClick={() => {
+                  setSelectedCategory(category.id);
+                  setTimeout(() => {
+                    if (projectPanelRef.current) {
+                      const y = projectPanelRef.current.getBoundingClientRect().top + window.scrollY - 80; // 80px offset from top
+                      window.scrollTo({ top: y, behavior: 'smooth' });
+                    }
+                  }, 200); // slightly longer delay for smoother effect
+                }}
                 data-testid={`card-category-${category.id}`}
               >
                 <div className="text-accent text-4xl mb-6">
@@ -158,24 +213,30 @@ export default function ProjectsSection() {
             );
           })}
         </div>
-        
         {/* Project Showcase Modal */}
         {selectedCategory && selectedCategoryData && (
-          <div className="mt-16">
+          <div ref={projectPanelRef} className="mt-16">
             <div className="glass-effect rounded-2xl p-8">
               <div className="flex justify-between items-center mb-8">
                 <h3 className="text-3xl font-bold text-accent">
                   {selectedCategoryData.name}
                 </h3>
                 <button
-                  onClick={() => setSelectedCategory(null)}
+                  onClick={() => {
+                    setSelectedCategory(null);
+                    setTimeout(() => {
+                      if (categoryGridRef.current) {
+                        const y = categoryGridRef.current.getBoundingClientRect().top + window.scrollY - 80;
+                        window.scrollTo({ top: y, behavior: 'smooth' });
+                      }
+                    }, 200);
+                  }}
                   className="text-muted-foreground hover:text-foreground transition-colors"
                   data-testid="button-close-category"
                 >
                   <X size={24} />
                 </button>
               </div>
-              
               <div className="grid md:grid-cols-3 gap-6" data-testid="grid-projects">
                 {getCategoryFiles(selectedCategory).length > 0 ? (
                   getCategoryFiles(selectedCategory).map((file, index) => (
@@ -188,7 +249,7 @@ export default function ProjectsSection() {
                         {isImage(file.type) ? (
                           <>
                             <img
-                              src={file.path}
+                              src={getAssetPath(file.path)}
                               alt="Project showcase"
                               className="w-full h-full object-cover rounded-lg transition-transform duration-300 group-hover:scale-105"
                               data-testid={`img-project-${index}`}
@@ -216,7 +277,7 @@ export default function ProjectsSection() {
                         ) : isVideo(file.type) ? (
                           <>
                             <video
-                              src={file.path}
+                              src={getAssetPath(file.path)}
                               className="w-full h-full object-cover rounded-lg"
                               muted
                               data-testid={`video-project-${index}`}
@@ -260,14 +321,14 @@ export default function ProjectsSection() {
               
               {isImage(previewFile.type) ? (
                 <img
-                  src={previewFile.path}
+                  src={getAssetPath(previewFile.path)}
                   alt="Project preview"
                   className="max-w-full max-h-full object-contain rounded-lg"
                   data-testid="preview-image"
                 />
               ) : isVideo(previewFile.type) ? (
                 <video
-                  src={previewFile.path}
+                  src={getAssetPath(previewFile.path)}
                   controls
                   autoPlay
                   className="max-w-full max-h-full object-contain rounded-lg"

@@ -13,6 +13,48 @@
       "type": "image/png",
       "size": 146284,
       "lastModified": "2025-09-03T06:52:22.891Z"
+    },
+    {
+      "name": "3",
+      "path": "/vincent-vila-portfolio/assets/web-applications/3.png",
+      "type": "image/png",
+      "size": 123456,
+      "lastModified": "2025-09-15T00:00:00.000Z"
+    },
+    {
+      "name": "4",
+      "path": "/vincent-vila-portfolio/assets/web-applications/4.png",
+      "type": "image/png",
+      "size": 123456,
+      "lastModified": "2025-09-15T00:00:00.000Z"
+    },
+    {
+      "name": "5",
+      "path": "/vincent-vila-portfolio/assets/web-applications/5.png",
+      "type": "image/png",
+      "size": 123456,
+      "lastModified": "2025-09-15T00:00:00.000Z"
+    },
+    {
+      "name": "6",
+      "path": "/vincent-vila-portfolio/assets/web-applications/6.png",
+      "type": "image/png",
+      "size": 123456,
+      "lastModified": "2025-09-15T00:00:00.000Z"
+    },
+    {
+      "name": "7",
+      "path": "/vincent-vila-portfolio/assets/web-applications/7.png",
+      "type": "image/png",
+      "size": 123456,
+      "lastModified": "2025-09-15T00:00:00.000Z"
+    },
+    {
+      "name": "8",
+      "path": "/vincent-vila-portfolio/assets/web-applications/8.png",
+      "type": "image/png",
+      "size": 123456,
+      "lastModified": "2025-09-15T00:00:00.000Z"
     }
   ],
   "digital-designs": [
@@ -57,6 +99,20 @@
       "type": "image/png",
       "size": 586890,
       "lastModified": "2024-04-02T13:41:38.000Z"
+    },
+    {
+      "name": "7",
+      "path": "/vincent-vila-portfolio/assets/digital-designs/7.png",
+      "type": "image/png",
+      "size": 123456,
+      "lastModified": "2025-09-15T00:00:00.000Z"
+    },
+    {
+      "name": "8",
+      "path": "/vincent-vila-portfolio/assets/digital-designs/8.png",
+      "type": "image/png",
+      "size": 123456,
+      "lastModified": "2025-09-15T00:00:00.000Z"
     }
   ],
   "digital-art": [
