@@ -21,13 +21,19 @@ export default function ProjectsSection() {
   const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
   const base = isLocal ? '' : '/vincent-vila-portfolio';
 
-  // Main project data (fetches directly from API, not static JSON)
+  // Main project data (try API, fallback to static JSON for GitHub Pages)
   const { data: projectData, isLoading } = useQuery<ProjectData>({
     queryKey: ['projects'],
     queryFn: async () => {
-      const response = await fetch(`${base}/api/projects`);
+      // Try API endpoint first
+      let response = await fetch(`${base}/api/projects`);
+      if (response.ok) {
+        return response.json();
+      }
+      // If API fails (e.g., on GitHub Pages), fallback to static JSON
+      response = await fetch(`${base}/projects.json?t=${Date.now()}`);
       if (!response.ok) {
-        throw new Error('Failed to fetch projects');
+        throw new Error('Failed to fetch projects from both API and JSON');
       }
       return response.json();
     },
